@@ -1,0 +1,17 @@
+from tinydb import TinyDB
+db = TinyDB('data/db.json')
+db.drop_tables()
+t_product = db.table('Products')
+#t_product = db
+t_product.insert({'name': 'chleb', 'price': 5, 'shelf': 0})
+t_product.insert({'name': 'bułka', 'price': 0.8, 'shelf': 0})
+t_product.insert({'name': 'mąka', 'price': 2, 'shelf': 1})
+t_product.insert({'name': 'jajko', 'price': 0.4, 'shelf': 2})
+t_product.insert({'name': 'olej', 'price': 3, 'shelf': 5})
+t_product.insert({'name': 'ser', 'price': 4, 'shelf': 2})
+t_receipe = db.table("Receipe")
+t_receipe.insert({"name": 'jajecznica', 'difficulty': 0, 'ingredient': ['0', '1'], 'completed': False})
+t_receipe.insert({"name": 'kanapka', 'difficulty': 1, 'ingredient': ['0', '6'], 'completed': False})
+t_receipe.insert({"name": 'kanapka', 'difficulty': 0, 'ingredient': ['0', '6'], 'completed': True})
+t_receipe.insert({"name": 'kanapka', 'difficulty': 2, 'ingredient': ['0', '6'], 'completed': False})
+db.close()
