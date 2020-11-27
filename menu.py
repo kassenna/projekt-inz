@@ -1,40 +1,37 @@
-from play import Play
-from display_objects.receipe_lvl import Receipe_lvl
+import play
+from display_objects.recipe_button import Recipe_button
 import pygame as pg
-from pygame_menu import widgets
-from screen import Screen
+from other.screen import Screen
 
 
-
-class Menu(Play):
-    def __init__(self, data, screen,  clock):
+class Menu(play.Play):
+    def __init__(self, data, screen, clock):
         super().__init__(data, screen, clock)
         self.levels = list()
-    def set_levels(self):
-        for receipe in self.data.receipes:
-            self.levels.append(Receipe_lvl(receipe, self.clock, self.screen))
+        self.__set_levels()
+        self.__run()
 
-    def run(self):
+    def __set_levels(self):
+        for recipe in self.data.recipes:
+            self.levels.append(Recipe_button(recipe, self.clock, self.screen))
 
+    def __run(self):
         while True:
-            self.screen.fill((50, 50, 50))
+            self.screen.fill((100, 100, 150))
             for lvl in self.levels:
                 lvl.draw()
 
             for event in pg.event.get():
-                 if event.type == pg.QUIT:
+                if event.type == pg.QUIT:
                     quit()
-                 elif event.type == pg.KEYDOWN:
+                elif event.type == pg.KEYDOWN:
                     if event.type == pg.K_ESCAPE:
                         quit()
-                 elif event.type == pg.MOUSEBUTTONDOWN:
+                elif event.type == pg.MOUSEBUTTONDOWN:
                     for lvl in self.levels:
                         if lvl.click(pg.mouse.get_pos()):
                             pg.display.set_mode(Screen.get_size(), pg.RESIZABLE | pg.VIDEORESIZE)
-                            lvl.run(self.data, 0)
-                 elif event.type == pg.VIDEORESIZE:
+                            lvl.run(self.data)
+                elif event.type == pg.VIDEORESIZE:
                     self.screen.self.screen_width, self.screen_height = event.size
-
-                #print(pg.mouse.get_pos())
             pg.display.update()
-
