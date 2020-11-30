@@ -9,13 +9,13 @@ class Menu(play.Play):
         super().__init__(data, screen, clock)
         self.levels = list()
         self.__set_levels()
-        self.__run()
+        self.run()
 
     def __set_levels(self):
         for recipe in self.data.recipes:
             self.levels.append(Recipe_button(recipe, self.clock, self.screen))
 
-    def __run(self):
+    def run(self):
         while True:
             self.screen.fill((100, 100, 150))
             for lvl in self.levels:

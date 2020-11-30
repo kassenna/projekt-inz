@@ -1,10 +1,15 @@
 import pygame as pg
-from abc import ABC
+import abc
 
 
-class Play(ABC):
+class Play(abc.ABC):
     def __init__(self, data, screen, clock):
         self.screen = screen
         self.data = data
         self.clock = clock
         self.FPS = 60
+
+    @abc.abstractmethod
+    def run(self):
+        pass
+

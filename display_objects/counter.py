@@ -20,9 +20,9 @@ class Counter(Object_display):
         self.position = copy.deepcopy(self.par)
         self.position.multiply(w, h)
 
-    def test_product(self, product):
-        if self.position.points.is_in_area(product.position.point):
-            product.is_lay = True
+    def test_product(self, element):
+        if self.position.points.is_in_area(element.position.point):
+            element.is_lay = True
         else:
-            product.is_lay = False
+            element.is_lay = False
 

@@ -56,9 +56,11 @@ class Rack(Object_display):
         for i in self.data.products:
             self.move_element.append(self.shelves[i.shelf].add_product(i))
 
-    def click(self, pos, updown):
-        for i in self.shelves:
+    def click(self, pos=None, event=None):
+        if pos is not None:
+            for i in self.shelves:
                 product = i.click(pos)
-                if product != None:
+                if product is not None:
                     return product
-
+        if event is not None:
+            self.recipe_widget.click(event)

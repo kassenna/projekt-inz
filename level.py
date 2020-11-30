@@ -51,16 +51,16 @@ class Level(Play):
                     if event.key == pg.K_ESCAPE:
                         return
                 elif event.type == pg.MOUSEBUTTONDOWN:
-                    product = self.rack.click(pg.mouse.get_pos(), True)
+
+                    product = self.rack.click(pos=pg.mouse.get_pos())
                 elif event.type == pg.MOUSEBUTTONUP:
                     if product is not None:
-
                         product.lay()
                         product = None
                 if product is not None:
                     product.move(pg.mouse.get_pos())
                     self.counter.test_product(product)
                     product.draw()
-
+            self.rack.click(event=event)
             pg.display.update()
             self.clock.tick(self.FPS)
