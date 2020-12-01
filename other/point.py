@@ -55,10 +55,10 @@ class Point:
 
 
 class Rectangle:
-    def __init__(self, x, y, xend, yend):
-        self.point = Point((x, y))
-        self.end_coordinate = Point((xend, yend))
-        self.size = Point((xend - x, yend - y))
+    def __init__(self, coordinate):
+        self.point = Point((coordinate[0],coordinate[1]))
+        self.end_coordinate = Point((coordinate[2], coordinate[3]))
+        self.size = self.end_coordinate - self.point
 
     def __mul__(self, point: Point):
         p = copy.deepcopy(self)
@@ -89,7 +89,7 @@ class Rectangle:
         return self.point.x, self.point.y, self.end_coordinate.x, self.end_coordinate.y
 
     def rectangle(self):
-        return int(self.point.x), int(self.point.y), int(self.size.x), int(self.size.y)
+        return list((self.point.x, self.point.y, self.size.x, self.size.y))
 
     def is_in_area(self, point):
         if self.point < point < self.end_coordinate:

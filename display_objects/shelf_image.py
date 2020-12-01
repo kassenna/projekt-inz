@@ -7,18 +7,17 @@ from other.point import Rectangle, Point
 
 
 class Shelf_image(Object_display):
-    def __init__(self, x: float, y: float, xmax: float, ymax: float, s_width: int, s_height: int, screen):
-        super().__init__(screen, s_width, s_height)
+    def __init__(self, coordinate, screen_w: int, screen_h: int):
+        super().__init__(screen_w, screen_h)
         self.color0 = (82, 33, 0, 50)
         self.color1 = (65, 33, 0, 0)
         self.color2 = (90, 40, 0, 0)
-        self.rectangle = Rectangle(x, y, xmax, ymax)
-        self.resize(s_width, s_height)
+        self.rectangle = Rectangle(coordinate)
+        self.resize(screen_w, screen_h)
 
     def resize(self, w, h):
         self.screen_w, self.screen_h = w, h
         rec = copy.deepcopy(self.rectangle) * Point((w, h))
-        #rec.end_coordinate.y
         self.tempx = (rec.end_coordinate.y - rec.point.y) / math.tan(0.5)
         temp_depth = (rec.end_coordinate.y - rec.point.y) * 0.3
         self.points0 = numpy.array([(rec.point.x, rec.point.y), (rec.end_coordinate.x, rec.point.y),

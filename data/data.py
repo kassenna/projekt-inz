@@ -13,7 +13,7 @@ class Data:
         self.__insert_recipes()
         self.current_recipe = 0
 
-    def __insert_products(self):
+    def __insert_products(self) -> None:
         t_product = self.db.table("Products")
         for p in t_product:
             self.products.append(Product_data(p))
@@ -23,10 +23,10 @@ class Data:
         for id, r in enumerate(t_receipe):
             self.recipes.append(Recipe_data(r, id))
 
-    def temp(self):
+    def temp(self) -> str:
         print(self.db.all())
 
-    def display_products(self):
+    def display_products(self) -> str:
         for i in self.products:
             i.display()
 
@@ -34,5 +34,5 @@ class Data:
         for i in self.recipes:
             i.display()
 
-    def insert_product_to_receipe(self, id):
+    def insert_product_to_receipe(self, id :int) -> None:
         self.recipes[id].insert_product(self.products)

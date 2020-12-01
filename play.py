@@ -1,13 +1,12 @@
-import pygame as pg
+import pygame
 import abc
 
 
 class Play(abc.ABC):
-    def __init__(self, data, screen, clock):
-        self.screen = screen
-        self.data = data
-        self.clock = clock
-        self.FPS = 60
+    screen = None
+    data = None
+    clock = pygame.time.Clock()
+    FPS = 60
 
     @abc.abstractmethod
     def run(self):
