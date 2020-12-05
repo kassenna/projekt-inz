@@ -13,6 +13,7 @@ class Data:
         self.__insert_recipes()
         self.current_recipe = 0
 
+
     def __insert_products(self) -> None:
         t_product = self.db.table("Products")
         for p in t_product:
@@ -36,3 +37,5 @@ class Data:
 
     def insert_product_to_receipe(self, id :int) -> None:
         self.recipes[id].insert_product(self.products)
+
+

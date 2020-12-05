@@ -5,11 +5,11 @@ from display_objects.pocket import Pocket
 
 
 class Pay(Play):
-    def __init__(self, screen_w, screen_h):
+    def __init__(self, screen_w, screen_h, count):
         self.size = (screen_w, screen_h)
         self.counter = Counter(screen_w, screen_h, (0.3, 0.1, 0.7, 0.5))
         self.pocket = Pocket(screen_w, screen_h, (0.4, 0.6, 0.7, 0.8))
-        self.pocket.count(1.10)
+        self.pocket.count(count)
         self.pocket.create()
 
     def resize(self):

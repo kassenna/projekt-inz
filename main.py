@@ -7,10 +7,10 @@ from menu import Menu
 import pygameAssets
 import pygame_menu
 from play import Play
+from product import Product
 
 
 def select_level():
-
     Menu()
 
 
@@ -23,6 +23,7 @@ def main():
     Play.clock = pg.time.Clock()
     Play.data = data
     Play.screen = window
+    Product.data = data
 
     pygameAssets.TextBox.setScreen(window)
     menu = pygame_menu.Menu(Screen.get_size()[1], Screen.get_size()[0], 'menu', theme=pygame_menu.themes.THEME_BLUE)

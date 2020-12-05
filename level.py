@@ -16,6 +16,7 @@ class Level(Play):
 
     def __set_level(self):
         self.recipe = Play.data.recipes[self.recipe_id]
+        self.recipe.set_price()
 
     def resize(self):
         self.rack.resize(self.screen_w, self.screen_h)
@@ -23,7 +24,7 @@ class Level(Play):
         time.sleep(0.01)
 
     def run(self):
-        product_image = None
+        product = None
         running = True
         while running:
             Play.screen.fill((255, 255, 230))
@@ -42,17 +43,19 @@ class Level(Play):
                     if event.key == pg.K_ESCAPE:
                         return
                 elif event.type == pg.MOUSEBUTTONDOWN:
-                    product_image = self.rack.click(pos=pg.mouse.get_pos())
-                    if product_image is not None:
-                        self.counter.test_product(product_image, lay=False)
+                    product = self.rack.click(pos=pg.mouse.get_pos())
+                    if product is not None:
+                        self.counter.test_product(product, lay=False)
                 elif event.type == pg.MOUSEBUTTONUP:
-                    if product_image is not None:
-                        self.counter.test_product(product_image, lay=True)
-                        product_image.lay()
-                        product_image = None
-                if product_image is not None:
-                    product_image.move(pg.mouse.get_pos())
-                    product_image.draw()
+                    if product is not None:
+                        self.counter.test_product(product, lay=True)
+                        product.lay()
+                        product = None
+                        print(self.recipe.check())
+                        print(' ')
+                if product is not None:
+                    product.current_image.move(pg.mouse.get_pos())
+                    product.current_image.draw()
 
             self.rack.click(event=event)
             pg.display.update()

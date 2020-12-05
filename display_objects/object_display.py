@@ -1,6 +1,5 @@
 import abc
 
-
 class Object_display(abc.ABC):
     screen = None
     data = None

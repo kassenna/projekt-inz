@@ -27,8 +27,9 @@ class Shelf(Object_display):
     def add_product(self, product):
         if self.nmbr_product > 9:
             return
-        self.product.append(
-                Product(self.product_start.get_coordinate(), self.screen_w, self.screen_h, product))
+        p = Product(self.product_start.get_coordinate(), self.screen_w, self.screen_h, product)
+        p.check()
+        self.product.append(p)
         self.product_start.move(Point((self.product_start.size.x*0.8, 0)))
         self.nmbr_product += 1
 

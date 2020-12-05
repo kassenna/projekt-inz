@@ -1,3 +1,5 @@
+import copy
+
 import pygame
 from display_objects.coin import Coin
 import random
@@ -17,17 +19,15 @@ class Pocket(Object_display):
 
 
     def count(self, sum):
-        zl = int(sum)
-        gr = int((sum - zl) * 100)
+        self.price = copy.deepcopy(sum)
         for i in self.nominal:
-            print(f"zl: {zl}, gr: {gr}")
-            zl_temp = zl // i
-            gr_temp = gr // i
-            print(f"{i} : {zl_temp} + {gr_temp}")
+            print(str(sum))
+            zl_temp = sum.zl // i
+            gr_temp = sum.gr // i
             self.zl_count.append(zl_temp)
             self.gr_count.append(gr_temp)
-            zl -= zl_temp * i
-            gr -= gr_temp * i
+            sum.zl -= zl_temp * i
+            sum.gr -= gr_temp * i
 
     def create(self):
         dx = 0.05

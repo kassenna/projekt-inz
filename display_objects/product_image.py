@@ -16,10 +16,11 @@ class Product_image(Moveable_object):
         self.product = product
         self.price = product.price
 
+
     def click(self, pos):
         if self.position.is_in_area(Point(pos)):
-            self.is_clicked = True
             self.cursor = Point(pos)
+            self.is_clicked = True
             self.product.is_clicked = True
             return self
 
