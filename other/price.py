@@ -23,7 +23,9 @@ class Price:
         if self.gr >= 100:
             a = self.gr // 100
             self.gr = self.gr % 100
-        self.zl += other.zl + a
+        other.zl += a
+        self.zl += other.zl
+        return self
 
     def __mul__(self, other: int):
         temp = copy.deepcopy(self)
@@ -44,6 +46,12 @@ class Price:
             self.gr = self.gr % 100
         self.zl *= other
         self.zl += a
+        return self
 
     def __str__(self):
         return f"{self.zl} zl  {self.gr} gr "
+
+    def __eq__(self, other):
+        if self.zl == other.zl and self.gr == other.gr:
+            return True
+        return False

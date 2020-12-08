@@ -2,7 +2,7 @@ import copy
 import math
 import numpy
 import pygame
-from display_objects.object_display import Object_display
+from abstract_class.object_display import Object_display
 from other.point import Rectangle, Point
 
 

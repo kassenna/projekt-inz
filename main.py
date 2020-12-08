@@ -1,13 +1,13 @@
 import pygame
 import pygame as pg
 from data.data import Data
-from display_objects.object_display import Object_display
+from abstract_class.object_display import Object_display
 from other.screen import Screen
 from menu import Menu
 import pygameAssets
 import pygame_menu
-from play import Play
-from product import Product
+from abstract_class.play import Play
+from shop.product import Product
 
 
 def select_level():

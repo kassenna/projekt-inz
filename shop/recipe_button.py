@@ -1,8 +1,8 @@
 import copy
 import pygame
-from level import Level
+from shop.level import Level
 from other.point import Rectangle, Point
-from display_objects.object_display import Object_display
+from abstract_class.object_display import Object_display
 
 
 class Recipe_button(Object_display):

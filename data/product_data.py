@@ -1,22 +1,18 @@
-#os -> independent    os patch
+# os -> independent    os patch
 import copy
-
-from other.point import Point
 from other.price import Price
 
 
 class Product_data:
-    def __init__(self, d : dict):
+    def __init__(self, d: dict):
         self.name = d['name']
-        self.price = Price(float(d['price']))
-        print(str(self.price))
-        self.shelf = int(d['shelf'])
-        self.number = int(d['number'])
+        self.price = Price(d['price'])
+        self.shelf = d['shelf']
+        self.number = d['number']
         self.number_lay = 0
         self.number_recipe = 0
         self.is_clicked = False
         self.is_checked = False
-
 
     def copy(self):
         return copy.deepcopy(self)
@@ -30,8 +26,5 @@ class Product_data:
         else:
             self.number_recipe = self.number
 
-    def checked(self, l):
-        self.is_checked = (l == self.number_recipe)
-
-
-
+    def checked(self, number):
+        self.is_checked = (number == self.number_recipe)

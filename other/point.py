@@ -28,6 +28,7 @@ class Point:
     def __imul__(self, point):
         self.x = self.x * point.x
         self.y = self.y * point.y
+        return self
 
     def __mul__(self, point):
         return Point((self.x * point.x, self.y * point.y))
@@ -44,6 +45,7 @@ class Point:
     def __iadd__(self, point):
         self.x += point.x
         self.y += point.y
+        return self
 
     def __sub__(self, point):
         x = self.x - point.x
@@ -71,6 +73,7 @@ class Rectangle:
         self.point *= point
         self.end_coordinate *= point
         self.size = self.end_coordinate - self.point
+        return self
 
     def resize(self, x, y):
         self.size = self.size * Point((x, y))

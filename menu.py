@@ -1,5 +1,5 @@
-from play import Play
-from display_objects.recipe_button import Recipe_button
+from abstract_class.play import Play
+from shop.recipe_button import Recipe_button
 import pygame as pg
 from other.screen import Screen
 
@@ -34,6 +34,7 @@ class Menu(Play):
                         if lvl.click(pg.mouse.get_pos()):
                             pg.display.set_mode(Screen.get_size(), pg.RESIZABLE | pg.VIDEORESIZE)
                             lvl.run()
+                            Play.data.reset()
                 elif event.type == pg.VIDEORESIZE:
                     self.screen_w, self.screen_h = event.size
             pg.display.update()

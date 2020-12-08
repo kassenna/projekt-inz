@@ -7,7 +7,6 @@ class Data:
     def __init__(self, path='data/db.json'):
         self.products = []
         self.recipes = list()
-        self.shelves = []
         self.db = TinyDB(path)
         self.__insert_products()
         self.__insert_recipes()
@@ -38,4 +37,8 @@ class Data:
     def insert_product_to_receipe(self, id :int) -> None:
         self.recipes[id].insert_product(self.products)
 
+
+    def reset(self):
+        for i in self.products:
+            i.number_recipe = 0
 

@@ -1,10 +1,9 @@
 import copy
 
-from display_objects.object_display import Object_display
-from display_objects.product_image import Product_image
-from display_objects.shelf_image import Shelf_image
+from abstract_class.object_display import Object_display
+from shop.shelf_image import Shelf_image
 from other.point import Rectangle, Point
-from product import Product
+from shop.product import Product
 
 
 class Shelf(Object_display):

@@ -1,13 +1,13 @@
 import copy
 import pygame
-from display_objects.object_display import Object_display
+from abstract_class.object_display import Object_display
 from other.point import Rectangle, Point
 
 
 class Moveable_object(Object_display):
     def __init__(self, coordinate, w, h):
         super().__init__(w, h)
-        self.is_lay = False
+        self.on_counter = False
         self.start_coordinate = Rectangle(coordinate)
         self.position = copy.deepcopy(self.start_coordinate) * Point((self.screen_w, self.screen_h))
         self.im = pygame.transform.scale(self.image, self.position.size.to_tuple())
@@ -30,7 +30,6 @@ class Moveable_object(Object_display):
             return self
 
     def lay(self) -> None:
-        if not self.is_lay:
             self.position = copy.deepcopy(self.start_coordinate)
             self.position = self.position * Point((self.screen_w, self.screen_h))
             self.is_clicked = False

@@ -1,8 +1,9 @@
-from display_objects.counter import Counter
-from display_objects.rack import Rack
-from play import Play
+from pygameAssets import TextBox
+
+from counter import Counter
+from shop.rack import Rack
+from abstract_class.play import Play
 import pygame as pg
-import time
 
 
 class Level(Play):
@@ -13,17 +14,18 @@ class Level(Play):
         self.__set_level()
         self.counter = Counter(self.screen_w, self.screen_h, (0.00, 0.7, 1, 0.9))
         self.rack = Rack(self.screen_w, self.screen_h, self.recipe_id)
+        self.label = TextBox(self.screen_w // 2, 50, "wybierz produkty według listy i przeciągnij je na ladę", color = (200,200,200))
 
     def __set_level(self):
         self.recipe = Play.data.recipes[self.recipe_id]
         self.recipe.set_price()
 
-    def resize(self):
+    def __resize(self):
         self.rack.resize(self.screen_w, self.screen_h)
         self.counter.resize(self.screen_w, self.screen_h)
-        time.sleep(0.01)
 
     def run(self):
+        self.recipe.check()
         product = None
         running = True
         while running:
@@ -34,7 +36,7 @@ class Level(Play):
                 if event.type == pg.VIDEORESIZE:
                     try:
                         self.screen_w, self.screen_h = event.size
-                        self.resize()
+                        self.__resize()
                     except:
                         pass
                 elif event.type == pg.QUIT:
@@ -49,14 +51,13 @@ class Level(Play):
                 elif event.type == pg.MOUSEBUTTONUP:
                     if product is not None:
                         self.counter.test_product(product, lay=True)
-                        product.lay()
                         product = None
-                        print(self.recipe.check())
-                        print(' ')
+                        self.recipe.check()
                 if product is not None:
                     product.current_image.move(pg.mouse.get_pos())
                     product.current_image.draw()
 
             self.rack.click(event=event)
+            self.label.draw()
             pg.display.update()
             self.clock.tick(self.FPS)

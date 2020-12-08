@@ -1,8 +1,9 @@
 import pygame
-from display_objects.object_display import Object_display
-from display_objects.product_image import Product_image
-from shelf import Shelf
-from display_objects.recipe_widget import Recipe_widget
+from abstract_class.object_display import Object_display
+from shop.product import Product
+from shop.product_image import Product_image
+from shop.shelf import Shelf
+from shop.recipe_widget import Recipe_widget
 
 
 class Rack(Object_display):
@@ -50,7 +51,7 @@ class Rack(Object_display):
         for i in self.data.products:
             self.shelves[i.shelf].add_product(i)
 
-    def click(self, pos=None, event=None) -> Product_image:
+    def click(self, pos=None, event=None) -> Product:
         if pos is not None:
             for i in self.shelves:
                 product = i.click(pos)
