@@ -1,7 +1,6 @@
 import copy
 import pygame
-
-from abstract_class.button import Button_ok
+from other.button import Button_ok
 from abstract_class.object_display import Object_display
 from other.point import Point, Rectangle
 from shop.list_recipe import Product_list, List_recipe
@@ -18,7 +17,7 @@ class Recipe_widget(Object_display):
         self.recipe_widget.append(List_recipe(self.coordinate, w, h, self.recipe.name, is_title=True))
 
         for i, product in enumerate(self.recipe.ingredient):
-            self.recipe_widget.append(Product_list(self.coordinate, product, i+1, w, h))
+            self.recipe_widget.append(Product_list(self.coordinate, product, i + 1, w, h))
         self.button = Button_ok(self.coordinate, w, h, recipe)
         self.recipe_widget.append(self.button)
 
@@ -27,14 +26,11 @@ class Recipe_widget(Object_display):
         for i in self.recipe_widget:
             i.draw()
 
-
-    def resize(self, w, h):
+    def resize(self, w: int, h: int):
         self.position = copy.deepcopy(self.coordinate)
         self.position = self.position * Point((w, h))
         for i in self.recipe_widget:
             i.resize(w, h)
 
     def click(self, event):
-        self.button.click(event)
-
-
+        return self.button.click(event)

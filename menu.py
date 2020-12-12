@@ -29,7 +29,7 @@ class Menu(Play):
                 elif event.type == pg.KEYDOWN:
                     if event.type == pg.K_ESCAPE:
                         quit()
-                elif event.type == pg.MOUSEBUTTONDOWN:
+                elif event.type == pg.MOUSEBUTTONUP:
                     for lvl in self.levels:
                         if lvl.click(pg.mouse.get_pos()):
                             pg.display.set_mode(Screen.get_size(), pg.RESIZABLE | pg.VIDEORESIZE)

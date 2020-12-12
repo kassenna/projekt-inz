@@ -1,4 +1,5 @@
 import random
+from other.price import Price
 from payment.coin_image import Coin_image
 from abstract_class.element import Element
 
@@ -6,7 +7,7 @@ from abstract_class.element import Element
 class Coin(Element):
     data = None
 
-    def __init__(self, w, h, coordinate, values=None, number=0):
+    def __init__(self, w: int, h: int, coordinate: object, values: Price = None, number: int = 0) -> object:
         super().__init__(values)
         if values is not None:
             self.coordinate = coordinate
@@ -25,4 +26,8 @@ class Coin(Element):
                 p = self.coordinate.size.x * random.random() + self.coordinate.point.x
                 q = self.coordinate.size.y * random.random() + self.coordinate.point.y
                 self.images.append(Coin_image(self.w, self.h, (p, q, p + dx, q + dy), values, name=name))
+
+    def resize(self, w, h):
+        for i in self.images:
+            i.resize(w, h)
 

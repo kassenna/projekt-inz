@@ -1,8 +1,13 @@
 import abc
 
+import pygame
+
+from data.data import Data
+
+
 class Object_display(abc.ABC):
-    screen = None
-    data = None
+    screen= None
+    data: Data = None
 
     def __init__(self, w: int, h: int):
         self.screen_w = w

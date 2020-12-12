@@ -1,13 +1,12 @@
 import pygame
 from abstract_class.object_display import Object_display
 from shop.product import Product
-from shop.product_image import Product_image
 from shop.shelf import Shelf
 from shop.recipe_widget import Recipe_widget
 
 
 class Rack(Object_display):
-    def __init__(self, w, h, id):
+    def __init__(self, w: int, h: int, id: int):
         super().__init__(w, h)
         self.recipe_widget = Recipe_widget(self.screen_w, self.screen_h,
                                            self.data.recipes[id])
@@ -40,7 +39,7 @@ class Rack(Object_display):
         for i in self.shelves:
             i.draw()
 
-    def resize(self, w, h):
+    def resize(self, w: int, h: int) -> None:
         self.recipe_widget.resize(w, h)
         self.screen_w = w
         self.screen_h = h
@@ -51,11 +50,12 @@ class Rack(Object_display):
         for i in self.data.products:
             self.shelves[i.shelf].add_product(i)
 
-    def click(self, pos=None, event=None) -> Product:
+    def click(self, pos: tuple = None, event: pygame.event = None) -> Product:
         if pos is not None:
             for i in self.shelves:
                 product = i.click(pos)
                 if product is not None:
                     return product
         if event is not None:
-            self.recipe_widget.click(event)
+            return self.recipe_widget.click(event)
+

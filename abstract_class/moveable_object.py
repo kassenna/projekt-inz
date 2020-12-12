@@ -1,4 +1,6 @@
 import copy
+import random
+
 import pygame
 from abstract_class.object_display import Object_display
 from other.point import Rectangle, Point
@@ -10,7 +12,9 @@ class Moveable_object(Object_display):
         self.on_counter = False
         self.start_coordinate = Rectangle(coordinate)
         self.position = copy.deepcopy(self.start_coordinate) * Point((self.screen_w, self.screen_h))
+        #self.position.move(Point((random.randint(50, 70), random.randint(0, 10))))
         self.im = pygame.transform.scale(self.image, self.position.size.to_tuple())
+
         self.dp = Point((0, 0))
         self.is_clicked = False
 

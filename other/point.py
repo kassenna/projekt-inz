@@ -1,5 +1,4 @@
 import copy
-import numpy
 
 
 class Point:
@@ -36,6 +35,7 @@ class Point:
     def move(self, x, y):
         self.x = self.x + x
         self.y = self.y + y
+        return self
 
     def __add__(self, point):
         x = self.x + point.x
@@ -106,32 +106,3 @@ class Rectangle:
         self.size = Point((x, y))
         self.end_coordinate = self.point + self.size
 
-
-class Parallelogram:
-    def __init__(self, x, y, xmax, ymax, angle):
-        self.angle = angle
-        self.tan = numpy.math.tan(numpy.math.radians(self.angle))
-        self.temp = (ymax - y) / self.tan
-        self.points = Rectangle(x, y, xmax, ymax)
-        self.parrallelogram = numpy.array(
-            [Point((x, y)), Point((xmax, y)), Point((xmax + self.temp, ymax)), Point((x + self.temp, ymax))])
-
-    def __index__(self, i):
-        return self.parrallelogram[i]
-
-    def move(self, dx, dy):
-        for i in self.parrallelogram:
-            i.move(dx, dy)
-
-    def polygon(self):
-        ret = []
-        for i in self.parrallelogram:
-            ret.append(i.to_tuple())
-        return ret
-
-    def multiply(self, w, h):
-        self.points = self.points * Point((w, h))
-        position = copy.deepcopy(self.parrallelogram)
-        for i in self.parrallelogram:
-            i *= Point((w, h))
-        self.temp = (position[3].y - position[0].y) / self.tan

@@ -1,12 +1,15 @@
 import copy
 import pygame
+from data.recipe_data import Recipe_data
 from shop.level import Level
 from other.point import Rectangle, Point
 from abstract_class.object_display import Object_display
+from pygameAssets import Button
 
 
 class Recipe_button(Object_display):
-    def __init__(self, receipe, w, h):
+    def __init__(self, receipe:Recipe_data, w:int, h:int):
+        Button.screen = Object_display.screen
         super().__init__(w, h)
         self.receipe = receipe
         self.ID = receipe.id
@@ -15,11 +18,15 @@ class Recipe_button(Object_display):
         self.frame.scale(self.frame.size.x // 10, self.frame.size.y // 10)
         self.square = copy.deepcopy(self.frame)
         self.square.scale(self.square.size.x // 20, self.square.size.y // 20)
+        self.square.move(Point((self.square.size.x//2, self.square.size.y//2)))
         self.color = (100, 0, 0)
         if receipe.difficulty == 0:
             self.color = (0, 80, 0)
         elif receipe.difficulty == 1:
-            self.color = (80, 80, 0)
+            self.color = (80, 90, 0)
+
+        self.button = Button(self.square.point.x, self.square.point.y, self.square.size.x, self.square.size.y,
+                             text = receipe.name, color=self.color)
 
     def draw(self) -> None:
         if self.receipe.completed:
@@ -27,9 +34,9 @@ class Recipe_button(Object_display):
         else:
             clr = (255, 50, 50)
         pygame.draw.rect(Object_display.screen, clr, self.frame.rectangle(), 0)
-        pygame.draw.rect(Object_display.screen, self.color, self.square.rectangle(), 0)
+        self.button.draw()
 
-    def click(self, pos):
+    def click(self, pos:tuple) -> bool:
         return self.frame.is_in_area(Point(pos))
 
     def run(self):

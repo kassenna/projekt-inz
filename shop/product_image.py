@@ -1,11 +1,11 @@
 import pygame
-import copy
 from abstract_class.moveable_object import Moveable_object
-from other.point import Point
+from data.product_data import Product_data
+from other.point import Point, Rectangle
 
 
 class Product_image(Moveable_object):
-    def __init__(self, coordinate, w: int, h: int, product, name='test.png'):
+    def __init__(self, coordinate: Rectangle, w: int, h: int, product: Product_data, name: str = None):
         try:
             self.image = pygame.image.load('images/' + name + '.png')
         except:
@@ -14,7 +14,7 @@ class Product_image(Moveable_object):
         self.product = product
         self.price = product.price
 
-    def click(self, pos):
+    def click(self, pos: tuple):
         if self.position.is_in_area(Point(pos)):
             self.cursor = Point(pos)
             self.is_clicked = True

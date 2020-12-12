@@ -14,6 +14,9 @@ class Product_data:
         self.is_clicked = False
         self.is_checked = False
 
+    def __index__(self):
+        return self.name
+
     def copy(self):
         return copy.deepcopy(self)
 
@@ -28,3 +31,8 @@ class Product_data:
 
     def checked(self, number):
         self.is_checked = (number == self.number_recipe)
+
+    def __eq__(self, other):
+        if self.name == other:
+            return True
+        return False

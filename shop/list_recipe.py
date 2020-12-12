@@ -1,11 +1,8 @@
 import copy
-import pygame
-
 from data.product_data import Product_data
 from abstract_class.object_display import Object_display
 import pygameAssets
 from other.point import Point, Rectangle
-from payment.pay import Pay
 
 
 class List_recipe(Object_display):

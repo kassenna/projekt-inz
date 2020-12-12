@@ -1,6 +1,5 @@
 import copy
 import pygame
-
 from other.price import Price
 from payment.coin import Coin
 from abstract_class.object_display import Object_display
@@ -28,7 +27,6 @@ class Pocket(Object_display):
             sum.gr -= gr_temp * i
 
     def create(self):
-
         for idx, nom in enumerate(self.nominal):
             self.coins.append(Coin(self.screen_w, self.screen_h, self.coordinate, values=Price(nom),
                                    number=self.zl_count[idx]))
@@ -41,6 +39,7 @@ class Pocket(Object_display):
             i.draw()
 
     def resize(self, w, h):
+        self.position = self.coordinate * Point((w, h))
         for i in self.coins:
             i.resize(w, h)
 

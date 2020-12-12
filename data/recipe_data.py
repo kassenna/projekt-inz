@@ -1,5 +1,5 @@
 from other.price import Price
-from random import sample, randint
+from random import sample
 
 
 class Recipe_data:
@@ -18,18 +18,29 @@ class Recipe_data:
         self.price = Price()
         self.products = None
 
-    def insert_product(self, products) -> None:
+    def add_product_to_recipe(self, el: tuple, products: list):
+
+        if type(el[0]) is int:
+            idx = el[0]
+            self.ingredient.append(products[idx])
+            products[idx].set_number_of_ingredient(el[1])
+        else:
+            try:
+                idx = products.index(el[0])
+                self.ingredient.append(products[idx])
+                products[idx].set_number_of_ingredient(el[1])
+            except:
+                pass
+
+    def insert_product(self, products: list) -> None:
         self.ingredient.clear()
         self.products = products
         for i in self.ingredient_number:
-            self.ingredient.append(products[i[0]])
-            products[i[0]].set_number_of_ingredient(i[1])
+            self.add_product_to_recipe(i, products)
         if self.optional_ingredient_number is not None:
-            x = sample(self.optional_ingredient_number,
-                       randint(self.difficulty, len(self.optional_ingredient_number)))
+            x = sample(self.optional_ingredient_number, self.difficulty)
             for i in x:
-                products[i[0]].set_number_of_ingredient(i[1])
-                self.ingredient.append(products[i[0]])
+                self.add_product_to_recipe(i, products)
 
     def display(self) -> str:
         print(f"{self.name, self.difficulty}")

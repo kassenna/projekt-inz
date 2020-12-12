@@ -55,3 +55,7 @@ class Price:
         if self.zl == other.zl and self.gr == other.gr:
             return True
         return False
+
+    def clear(self):
+        self.zl = 0
+        self.gr = 0
