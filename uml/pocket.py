@@ -1,9 +1,9 @@
-import copy
+
 import pygame
 from price import Price
 from coin import Coin
 from uml.object_display import Object_display
-from point import Rectangle, Point
+from points import Rectangle, Point
 
 
 class Pocket(Object_display):
@@ -17,7 +17,7 @@ class Pocket(Object_display):
         self.coins = []
 
     def count(self, sum):
-        self.price = copy.deepcopy(sum)
+        self.price = sum.copy()
         for i in self.nominal:
             zl_temp = sum.zl // i
             gr_temp = sum.gr // i
@@ -27,10 +27,12 @@ class Pocket(Object_display):
             sum.gr -= gr_temp * i
 
     def create(self):
+        coordinate = self.coordinate.copy()
+        coordinate.setsize(self.coordinate.size.x - 0.1, self.coordinate.size.y - 0.1)
         for idx, nom in enumerate(self.nominal):
-            self.coins.append(Coin(self.screen_w, self.screen_h, self.coordinate, values=Price(nom),
+            self.coins.append(Coin(self.screen_w, self.screen_h, coordinate, values=Price(nom),
                                    number=self.zl_count[idx]))
-            self.coins.append(Coin(self.screen_w, self.screen_h, self.coordinate, values=Price(nom/100),
+            self.coins.append(Coin(self.screen_w, self.screen_h, coordinate, values=Price(nom / 100),
                                    number=self.gr_count[idx]))
 
     def draw(self):

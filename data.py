@@ -1,3 +1,4 @@
+from beta.product_insert import ProductInsert
 from product_data import Product_data
 from recipe_data import Recipe_data
 from tinydb import TinyDB
@@ -11,6 +12,12 @@ class Data:
         self.__insert_products()
         self.__insert_recipes()
         self.current_recipe = 0
+        self.products_list = list()
+
+    def insert_product(self):
+        t_product = self.db.table("Products")
+        for idx, p in enumerate(t_product):
+            self.products_list.append((p['name'], idx))
 
     def __insert_products(self) -> None:
         t_product = self.db.table("Products")
@@ -22,10 +29,7 @@ class Data:
         for id, r in enumerate(t_receipe):
             self.recipes.append(Recipe_data(r, id))
 
-    def temp(self) -> str:
-        print(self.db.all())
-
-    def display_products(self) -> str:
+    def display_products(self):
         for i in self.products:
             i.display()
 

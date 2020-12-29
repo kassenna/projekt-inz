@@ -1,7 +1,7 @@
 import copy
 
 from product_data import Product_data
-from point import Rectangle, Point
+from points import Rectangle, Point
 from uml.product_image import Product_image
 from element import Element
 
@@ -17,11 +17,9 @@ class Product(Element):
         for i in range(self.product.number):
             self.images.append(Product_image(copy.deepcopy(c.get_coordinate()), w, h,
                                              product=product, name=product.name))
-            if i % 2 == 0:
-                c.move(Point((-0.02, 0.005)))
-            else:
-                c.move(Point((0.02, 0.005)))
-        self.images.reverse()
+            c.move(Point((-0.004, -0.008)))
+
+        # self.images.reverse()
 
     def check(self):
         l = 0

@@ -1,8 +1,7 @@
-import copy
 import pygame
 from recipe_data import Recipe_data
 from level import Level
-from point import Rectangle, Point
+from points import Rectangle, Point
 from uml.object_display import Object_display
 from pygameAssets import Button
 
@@ -39,7 +38,7 @@ class Recipe_button(Object_display):
         self.frame = Rectangle((0, 0, w // 10, w // 10))
         self.frame.move(Point((self.frame.size.x * (self.ID % 10), self.frame.size.y * (self.ID // 10))))
         self.frame.scale(Point((self.frame.size.x // 10, self.frame.size.y // 10)))
-        self.square = copy.deepcopy(self.frame)
+        self.square = self.frame.copy()
         self.square.scale(Point((self.square.size.x // 20, self.square.size.y // 20)))
         self.square.move(Point((self.square.size.x // 2, self.square.size.y // 2)))
 

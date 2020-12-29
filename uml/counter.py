@@ -1,9 +1,8 @@
-import copy
 import pygameAssets
 import pygame
 from element import Element
 from uml.object_display import Object_display
-from point import Rectangle, Point
+from points import Rectangle, Point
 from price import Price
 
 
@@ -22,8 +21,8 @@ class Counter(Object_display):
         self.counter.draw()
 
     def resize(self, w: int, h: int) -> None:
-        self.position = copy.deepcopy(self.par) * Point((w, h))
-        self.counter_pos = copy.deepcopy(self.counter_cor) * Point((w, h))
+        self.position = self.par.copy() * Point((w, h))
+        self.counter_pos = self.counter_cor.copy() * Point((w, h))
         self.counter = pygameAssets.Button(self.counter_pos[0],
                                            self.counter_pos[1],
                                            self.counter_pos[2],

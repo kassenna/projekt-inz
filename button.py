@@ -1,9 +1,8 @@
 import abc
-import copy
 from pygameAssets import pygameAssets, pygame
 from uml.object_display import Object_display
 from recipe_data import Recipe_data
-from point import Point, Rectangle
+from points import Point, Rectangle
 from price import Price
 from pay import Pay
 
@@ -11,15 +10,18 @@ from pay import Pay
 class Button(Object_display):
     def __init__(self, w: int, h: int, coordinate: Rectangle):
         super().__init__(w, h)
-        self.coordinate: Rectangle= copy.deepcopy(coordinate)
+        self.coordinate: Rectangle = coordinate.copy()
         pygameAssets.Button.setScreen(Object_display.screen)
 
     @abc.abstractmethod
     def draw(self, other=None):
         pass
 
+    def setText(self, text: str):
+        self.widget.setText(text)
+
     def resize(self, w: int, h: int):
-        self.rec = copy.copy(self.coordinate) * Point((w, h))
+        self.rec = self.coordinate.copy() * Point((w, h))
         self.widget = pygameAssets.Button(self.rec.point.x, self.rec.point.y, self.rec.size.x // 2, 40,
                                           color=(0, 200, 0), text='zapłać', textColor=(0, 0, 0),
                                           activeColor=(0, 0, 100), fontSize=40)
@@ -70,6 +72,5 @@ class Button_pay(Button):
     def click(self, event: pygame.event):
         if self.widget.isPressed(event):
             if self.lock is False:
-                print('zaplacono')
                 return True
         return False

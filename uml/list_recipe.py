@@ -1,15 +1,14 @@
-import copy
 from product_data import Product_data
 from uml.object_display import Object_display
 import pygameAssets
-from point import Point, Rectangle
+from points import Point, Rectangle
 
 
 class List_recipe(Object_display):
     def __init__(self, rec: Rectangle, w: int, h: int, name: str, i: int = 0, fontsize: int = 40,
                  is_title: bool = False):
         super().__init__(w, h)
-        self.coordinate = copy.deepcopy(rec)
+        self.coordinate = rec.copy()
         self.coordinate.move(Point((self.coordinate.size.x / 2, 0.05 * (i + 1))))
         if is_title is True:
             self.name = name.upper()
@@ -22,7 +21,7 @@ class List_recipe(Object_display):
         self.widget.draw()
 
     def resize(self, w: int, h: int) -> None:
-        self.point = copy.copy(self.coordinate.point) * Point((w, h))
+        self.point = self.coordinate.point.copy() * Point((w, h))
         self.widget = pygameAssets.TextBox(self.point.x, self.point.y, self.name, fontSize=self.font_size)
 
 

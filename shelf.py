@@ -1,8 +1,7 @@
-import copy
 from uml.object_display import Object_display
 from product_data import Product_data
 from uml.shelf_image import Shelf_image
-from point import Rectangle, Point
+from points import Rectangle, Point
 from product import Product
 
 
@@ -14,7 +13,7 @@ class Shelf(Object_display):
         self.image = Shelf_image(coordinate, screen_w, screen_h)
         self.product = []
         self.nmbr_product = 0
-        self.product_start = copy.deepcopy(self.rectangle)
+        self.product_start = self.rectangle.copy()
         self.product_start.setsize(self.product_start.size.x / 5, self.product_start.size.x / 5 * screen_w / screen_h)
         self.product_start.move(Point((self.product_start.size.x * 0.8, -self.product_start.size.y * 0.5)))
 

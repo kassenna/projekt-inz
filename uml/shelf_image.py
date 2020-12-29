@@ -1,9 +1,8 @@
-import copy
 import math
 import numpy
 import pygame
 from uml.object_display import Object_display
-from point import Rectangle, Point
+from points import Rectangle, Point
 
 
 class Shelf_image(Object_display):
@@ -17,7 +16,7 @@ class Shelf_image(Object_display):
 
     def resize(self, w, h):
         self.screen_w, self.screen_h = w, h
-        rec = copy.deepcopy(self.rectangle) * Point((w, h))
+        rec = self.rectangle.copy() * Point((w, h))
         self.tempx = (rec.end_coordinate.y - rec.point.y) / math.tan(0.5)
         temp_depth = (rec.end_coordinate.y - rec.point.y) * 0.3
         self.points0 = numpy.array([(rec.point.x, rec.point.y), (rec.end_coordinate.x, rec.point.y),

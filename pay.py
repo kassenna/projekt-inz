@@ -1,10 +1,11 @@
 import copy
+
 from tinydb import TinyDB, Query
 import pygame
 from tinydb.operations import set
 from uml.counter import Counter
 from play import Play
-from point import Rectangle
+from points import Rectangle
 from uml.pocket import Pocket
 from pygameAssets import TextBox
 
@@ -16,7 +17,7 @@ class Pay(Play):
         self.screen_w = screen_w
         self.screen_h = screen_h
         self.recipe = recipe
-        self.label = TextBox(screen_w // 2, 50, "Potrzeba zapłacić: " + str(count), color=(200, 200, 200))
+        self.label = TextBox(screen_w // 2, 50, "Do zapłaty: " + str(count), color=(150, 200, 200))
         self.counter = Counter(screen_w, screen_h, (0.3, 0.1, 0.7, 0.5))
         self.pocket = Pocket(screen_w, screen_h, (0.4, 0.6, 0.7, 0.8))
         self.pocket.count(copy.deepcopy(count))
@@ -42,6 +43,7 @@ class Pay(Play):
 
     def run(self):
         running = True
+        win = False
         self.screen.fill((50, 50, 50))
         coin = None
         while running:
@@ -66,14 +68,19 @@ class Pay(Play):
                 elif event.type == pygame.MOUSEBUTTONUP:
                     if coin is not None:
                         self.counter.test_product(coin, lay=True)
-                        #coin.lay()
                         coin = None
                 if coin is not None:
                     coin.current_image.move(pygame.mouse.get_pos())
                     coin.draw()
                 if self.button.click(event=event):
-                    self.complete_level()
-                    return
+                    if win is False:
+                        self.complete_level()
+                        self.label = TextBox(self.screen_w // 2, 50, 'Gratuluję! Poziom ukończony',
+                                             color=(150, 200, 200))
+                        self.button.setText('Powrót')
+                        win = True
+                    else:
+                        return
             self.button.draw(self.counter.price)
             pygame.display.update()
             Play.clock.tick(Play.FPS)

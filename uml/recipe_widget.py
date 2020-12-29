@@ -1,8 +1,7 @@
-import copy
 import pygame
 from button import Button_ok
 from uml.object_display import Object_display
-from point import Point, Rectangle
+from points import Point, Rectangle
 from uml.list_recipe import Product_list, List_recipe
 
 
@@ -12,7 +11,8 @@ class Recipe_widget(Object_display):
         self.coordinate = Rectangle((0.75, 0.1, 0.9, 0.7))
         self.recipe = recipe
         self.recipe_widget = []
-        self.position = copy.deepcopy(self.coordinate)
+        self.position = self.coordinate.copy()
+
         self.position = self.position * Point((w, h))
         self.recipe_widget.append(List_recipe(self.coordinate, w, h, self.recipe.name, is_title=True))
 
@@ -27,7 +27,7 @@ class Recipe_widget(Object_display):
             i.draw()
 
     def resize(self, w: int, h: int):
-        self.position = copy.deepcopy(self.coordinate)
+        self.position = self.coordinate.copy()
         self.position = self.position * Point((w, h))
         for i in self.recipe_widget:
             i.resize(w, h)

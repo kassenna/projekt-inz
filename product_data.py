@@ -17,9 +17,6 @@ class Product_data:
     def __index__(self):
         return self.name
 
-    def copy(self):
-        return copy.deepcopy(self)
-
     def display(self) -> str:
         print(f"{self.name, self.price, self.shelf}")
 

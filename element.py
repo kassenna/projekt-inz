@@ -21,6 +21,7 @@ class Element(abc.ABC):
             i.resize(w, h)
 
     def draw(self):
+
         for i in self.images:
             i.draw()
 

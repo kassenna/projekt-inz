@@ -56,5 +56,6 @@ class Recipe_data:
         return True
 
     def set_price(self):
+        self.price.clear()
         for i in self.ingredient:
             self.price += i.price * i.number_recipe

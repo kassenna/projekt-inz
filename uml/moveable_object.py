@@ -1,7 +1,6 @@
-import copy
 import pygame
 from uml.object_display import Object_display
-from point import Rectangle, Point
+from points import Rectangle, Point
 
 
 class Moveable_object(Object_display):
@@ -9,7 +8,7 @@ class Moveable_object(Object_display):
         super().__init__(w, h)
         self.on_counter = False
         self.start_coordinate = Rectangle(coordinate)
-        self.position = copy.deepcopy(self.start_coordinate) * Point((self.screen_w, self.screen_h))
+        self.position = self.start_coordinate.copy() * Point((self.screen_w, self.screen_h))
         #self.position.move(Point((random.randint(50, 70), random.randint(0, 10))))
         self.im = pygame.transform.scale(self.image, self.position.size.to_int())
 
@@ -32,8 +31,8 @@ class Moveable_object(Object_display):
             return self
 
     def lay(self) -> None:
-            self.position = copy.deepcopy(self.start_coordinate)
-            self.position = self.position * Point((self.screen_w, self.screen_h))
+        self.position = self.start_coordinate.copy()
+        self.position = self.position * Point((self.screen_w, self.screen_h))
             self.is_clicked = False
 
     def move(self, pos: tuple):

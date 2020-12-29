@@ -1,7 +1,7 @@
 import pygame
 from uml.moveable_object import Moveable_object
 from product_data import Product_data
-from point import Point, Rectangle
+from points import Point, Rectangle
 
 
 class Product_image(Moveable_object):

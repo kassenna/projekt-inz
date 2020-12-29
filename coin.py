@@ -19,7 +19,7 @@ class Coin(Element):
                 name = str(self.price.zl) + 'zl.png'
             elif self.price.gr != 0:
                 name = str(self.price.gr) + 'gr.png'
-            extra = random.randint(0, 5) - 3
+            extra = random.randint(0, 6) - 4
             if extra < 0:
                 extra = 0
             for i in range(number+extra):

@@ -1,6 +1,8 @@
 import pygame
 import pygame as pg
 from tinydb import TinyDB
+
+from beta.create_level import CreateLevel
 from data import Data
 from uml.object_display import Object_display
 from screen import Screen
@@ -29,6 +31,12 @@ def clear(window, path='data/db.json'):
     select_level(window)
 
 
+def level(window):
+    data = Data()
+    data.insert_product()
+    c = CreateLevel('data/db.json')
+    c.run(window, data)
+
 def main():
     pygame.init()
     window = pg.display.set_mode(Screen.get_size())
@@ -37,6 +45,7 @@ def main():
     menu = pygame_menu.Menu(Screen.get_size()[1], Screen.get_size()[0], 'menu', theme=pygame_menu.themes.THEME_BLUE)
     menu.add_button('Graj', select_level, window)
     menu.add_button('Od nowa', clear, window)
+    menu.add_button('dodaj poziom', level, window)
     menu.mainloop(window)
 
 if __name__ == "__main__":

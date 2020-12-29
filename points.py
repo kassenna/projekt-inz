@@ -46,6 +46,8 @@ class Point:
     def to_int(self):
         return (int(self.x), int(self.y))
 
+    def copy(self):
+        return copy.copy(self)
 
 class Rectangle:
     def __init__(self, coordinate: tuple):
@@ -90,3 +92,6 @@ class Rectangle:
     def setsize(self, x: int or float, y: int or float):
         self.size = Point((x, y))
         self.end_coordinate = self.point + self.size
+
+    def copy(self):
+        return copy.deepcopy(self)

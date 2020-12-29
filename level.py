@@ -1,5 +1,4 @@
 from pygameAssets import TextBox
-
 from uml.counter import Counter
 from rack import Rack
 from play import Play
