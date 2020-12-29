@@ -1,7 +1,7 @@
 import pygameAssets
 import pygame
 from element import Element
-from uml.object_display import Object_display
+from object_display import Object_display
 from points import Rectangle, Point
 from price import Price
 

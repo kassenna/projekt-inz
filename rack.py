@@ -1,8 +1,8 @@
 import pygame
-from uml.object_display import Object_display
+from object_display import Object_display
 from product import Product
 from shelf import Shelf
-from uml.recipe_widget import Recipe_widget
+from recipe_widget import Recipe_widget
 
 '''
 Class Rack

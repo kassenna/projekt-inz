@@ -1,8 +1,8 @@
 import pygame
 from button import Button_ok
-from uml.object_display import Object_display
+from object_display import Object_display
 from points import Point, Rectangle
-from uml.list_recipe import Product_list, List_recipe
+from list_recipe import Product_list, List_recipe
 
 
 class Recipe_widget(Object_display):

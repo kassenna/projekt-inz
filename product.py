@@ -2,7 +2,7 @@ import copy
 
 from product_data import Product_data
 from points import Rectangle, Point
-from uml.product_image import Product_image
+from product_image import Product_image
 from element import Element
 
 

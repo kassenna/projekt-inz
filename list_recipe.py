@@ -1,5 +1,5 @@
 from product_data import Product_data
-from uml.object_display import Object_display
+from object_display import Object_display
 import pygameAssets
 from points import Point, Rectangle
 

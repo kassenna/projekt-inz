@@ -1,6 +1,6 @@
 import random
 from price import Price
-from uml.coin_image import Coin_image
+from coin_image import Coin_image
 from element import Element
 
 

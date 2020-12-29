@@ -1,5 +1,5 @@
 import pygame
-from uml.moveable_object import Moveable_object
+from moveable_object import Moveable_object
 from product_data import Product_data
 from points import Point, Rectangle
 

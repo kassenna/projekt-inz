@@ -1,5 +1,5 @@
 from play import Play
-from uml.recipe_button import Recipe_button
+from recipe_button import Recipe_button
 import pygame as pg
 from screen import Screen
 

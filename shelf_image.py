@@ -1,7 +1,7 @@
 import math
 import numpy
 import pygame
-from uml.object_display import Object_display
+from object_display import Object_display
 from points import Rectangle, Point
 
 

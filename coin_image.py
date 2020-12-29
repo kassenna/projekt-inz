@@ -1,6 +1,6 @@
 import pygame
 
-from uml.moveable_object import Moveable_object
+from moveable_object import Moveable_object
 
 
 class Coin_image(Moveable_object):

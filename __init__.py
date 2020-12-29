@@ -1,10 +1,8 @@
-import pygame
 import pygame as pg
 from tinydb import TinyDB
-
 from beta.create_level import CreateLevel
 from data import Data
-from uml.object_display import Object_display
+from object_display import Object_display
 from screen import Screen
 from menu import Menu
 import pygameAssets

@@ -1,6 +1,6 @@
-from uml.object_display import Object_display
+from object_display import Object_display
 from product_data import Product_data
-from uml.shelf_image import Shelf_image
+from shelf_image import Shelf_image
 from points import Rectangle, Point
 from product import Product
 

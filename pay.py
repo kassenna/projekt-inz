@@ -3,10 +3,10 @@ import copy
 from tinydb import TinyDB, Query
 import pygame
 from tinydb.operations import set
-from uml.counter import Counter
+from counter import Counter
 from play import Play
 from points import Rectangle
-from uml.pocket import Pocket
+from pocket import Pocket
 from pygameAssets import TextBox
 
 

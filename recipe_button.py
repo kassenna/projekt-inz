@@ -2,7 +2,7 @@ import pygame
 from recipe_data import Recipe_data
 from level import Level
 from points import Rectangle, Point
-from uml.object_display import Object_display
+from object_display import Object_display
 from pygameAssets import Button
 
 

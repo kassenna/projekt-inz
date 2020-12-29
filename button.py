@@ -1,6 +1,6 @@
 import abc
 from pygameAssets import pygameAssets, pygame
-from uml.object_display import Object_display
+from object_display import Object_display
 from recipe_data import Recipe_data
 from points import Point, Rectangle
 from price import Price

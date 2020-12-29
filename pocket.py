@@ -2,7 +2,7 @@
 import pygame
 from price import Price
 from coin import Coin
-from uml.object_display import Object_display
+from object_display import Object_display
 from points import Rectangle, Point
 
 
