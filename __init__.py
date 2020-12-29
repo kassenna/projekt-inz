@@ -40,7 +40,7 @@ def level(window):
 def main():
     pygame.init()
     window = pg.display.set_mode(Screen.get_size())
-    print(type(window))
+    pygame.display.set_caption('Przepis na matematykę')
     pygameAssets.TextBox.setScreen(window)
     menu = pygame_menu.Menu(Screen.get_size()[1], Screen.get_size()[0], 'menu', theme=pygame_menu.themes.THEME_BLUE)
     menu.add_button('Graj', select_level, window)

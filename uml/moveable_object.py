@@ -33,7 +33,7 @@ class Moveable_object(Object_display):
     def lay(self) -> None:
         self.position = self.start_coordinate.copy()
         self.position = self.position * Point((self.screen_w, self.screen_h))
-            self.is_clicked = False
+        self.is_clicked = False
 
     def move(self, pos: tuple):
         if self.is_clicked:

@@ -13,7 +13,8 @@ class Level(Play):
         self.__set_level()
         self.counter = Counter(self.screen_w, self.screen_h, (0.00, 0.7, 1, 1))
         self.rack = Rack(self.screen_w, self.screen_h, self.recipe_id)
-        self.label = TextBox(self.screen_w // 2, 50, "wybierz produkty według listy i przeciągnij je na ladę", color = (200,200,200))
+        self.label = TextBox(self.screen_w // 2, 20, "wybierz produkty według listy i przeciągnij je na ladę",
+                             color=(200, 200, 200))
 
     def __set_level(self):
         self.recipe = Play.data.recipes[self.recipe_id]
