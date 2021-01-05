@@ -1,5 +1,4 @@
 # os -> independent    os patch
-import copy
 from price import Price
 
 

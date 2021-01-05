@@ -13,8 +13,9 @@ class Recipe_widget(Object_display):
         self.recipe_widget = []
         self.position = self.coordinate.copy()
 
-        self.position = self.position * Point((w, h))
-        self.recipe_widget.append(List_recipe(self.coordinate, w, h, self.recipe.name, is_title=True))
+        self.position *= Point((w, h))
+        self.recipe_widget.append(List_recipe(self.coordinate, w, h, self.recipe.name, is_title=True,
+                                              fontsize=int(self.coordinate.size.y * 38)))
 
         for i, product in enumerate(self.recipe.ingredient):
             self.recipe_widget.append(Product_list(self.coordinate, product, i + 1, w, h))
@@ -29,6 +30,7 @@ class Recipe_widget(Object_display):
     def resize(self, w: int, h: int):
         self.position = self.coordinate.copy()
         self.position = self.position * Point((w, h))
+
         for i in self.recipe_widget:
             i.resize(w, h)
 

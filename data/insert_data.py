@@ -6,7 +6,7 @@ t_product = db.table('Products')
 t_product.insert({'name': 'chleb', 'price': 5, 'shelf': 0, 'number': 3})  # 0
 t_product.insert({'name': 'bułka', 'price': 0.8, 'shelf': 0, 'number': 5})  # 1
 t_product.insert({'name': 'mąka', 'price': 1.8, 'shelf': 1, 'number': 3})  # 2
-t_product.insert({'name': 'jajko', 'price': 0.4, 'shelf': 2, 'number': 5})  # 3
+t_product.insert({'name': 'jajko', 'price': 0.4, 'shelf': 2, 'number': 4})  # 3
 t_product.insert({'name': 'olej', 'price': 3, 'shelf': 5, 'number': 2})  # 4
 t_product.insert({'name': 'pomidor', 'price': 2, 'shelf': 6, 'number': 4})  # 5
 t_product.insert({'name': 'ogórek', 'price': 1.5, 'shelf': 6, 'number': 3})  # 6
@@ -17,8 +17,8 @@ t_product.insert({'name': 'szynka', 'price': 12.59, 'shelf': 3, 'number': 3})  #
 t_product.insert({'name': 'mleko', 'price': 1.5, 'shelf': 2, 'number': 3})  # 11
 t_product.insert({'name': 'jogurt', 'price': 1.75, 'shelf': 2, 'number': 3})  # 12
 t_product.insert({'name': 'kakao', 'price': 10.25, 'shelf': 1, 'number': 3})  # 13
-t_product.insert({'name': 'jabłko', 'price': 1.5, 'shelf': 7, 'number': 5})  # 14
-t_product.insert({'name': 'truskawka', 'price': 1.2, 'shelf': 7, 'number': 5})  # 15
+t_product.insert({'name': 'jabłko', 'price': 1.5, 'shelf': 7, 'number': 4})  # 14
+t_product.insert({'name': 'truskawka', 'price': 1.2, 'shelf': 7, 'number': 4})  # 15
 t_product.insert({'name': 'cukier', 'price': 3.45, 'shelf': 4, 'number': 3})  # 16
 t_product.insert({'name': 'płatki', 'price': 7.6, 'shelf': 1, 'number': 3})  # 17
 t_product.insert({'name': 'kiełbaska', 'price': 8, 'shelf': 3, 'number': 5})  # 18
@@ -29,7 +29,7 @@ t_product.insert({'name': 'rogal', 'price': 1.85, 'shelf': 0, 'number': 3})  # 2
 t_product.insert({'name': 'sok', 'price': 2.5, 'shelf': 5, 'number': 3})  # 22
 
 t_receipe = db.table("Recipes")
-t_receipe.insert({"name": 'jajecznica', 'difficulty': 0, 'ingredient': [('chleb', 4), ('jajko', 2)],
+t_receipe.insert({"name": 'jajecznica', 'difficulty': 0, 'ingredient': [('chleb', 1), ('jajko', 2)],
                   'optional ingredient': [('pomidor', 1), ('szczypiorek', 1)], 'completed': False})
 t_receipe.insert({"name": 'kanapka I', 'difficulty': 0, 'ingredient': [('bułka', 2), ('jajko', 3)],
                   'optional ingredient': [('ogórek', 1), ('szczypiorek', 2)], 'completed': False})

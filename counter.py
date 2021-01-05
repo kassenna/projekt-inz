@@ -17,7 +17,7 @@ class Counter(Object_display):
         self.elements = []
 
     def draw(self) -> None:
-        pygame.draw.rect(Object_display.screen, (0, 153, 153), self.position.to_rectangle())
+        pygame.draw.rect(Object_display.screen, (0, 100, 100), self.position.to_rectangle())
         self.counter.draw()
 
     def resize(self, w: int, h: int) -> None:
@@ -27,7 +27,7 @@ class Counter(Object_display):
                                            self.counter_pos[1],
                                            self.counter_pos[2],
                                            self.counter_pos[3],
-                                           color=(0, 0, 0), text=str(self.price))
+                                           color=(0, 0, 0), text=str(self.price), fontFamily='data/freesansbold.ttf')
 
     def test_product(self, element: Element, lay: bool = None) -> None:
         if self.position.is_in_area(element.current_image.position.point):

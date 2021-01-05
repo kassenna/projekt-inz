@@ -22,7 +22,7 @@
       "name": "jajko",
       "price": 0.4,
       "shelf": 2,
-      "number": 5
+      "number": 4
     },
     "5": {
       "name": "olej",
@@ -88,13 +88,13 @@
       "name": "jab\u0142ko",
       "price": 1.5,
       "shelf": 7,
-      "number": 5
+      "number": 4
     },
     "16": {
       "name": "truskawka",
       "price": 1.2,
       "shelf": 7,
-      "number": 5
+      "number": 4
     },
     "17": {
       "name": "cukier",
@@ -152,7 +152,7 @@
       "ingredient": [
         [
           "chleb",
-          4
+          1
         ],
         [
           "jajko",
@@ -324,6 +324,5 @@
       ],
       "completed": false
     }
-  },
-  "Receipe": {}
+  }
 }

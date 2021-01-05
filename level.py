@@ -14,7 +14,7 @@ class Level(Play):
         self.counter = Counter(self.screen_w, self.screen_h, (0.00, 0.7, 1, 1))
         self.rack = Rack(self.screen_w, self.screen_h, self.recipe_id)
         self.label = TextBox(self.screen_w // 2, 20, "wybierz produkty według listy i przeciągnij je na ladę",
-                             color=(200, 200, 200))
+                             color=(200, 200, 200), fontFamily='data/freesansbold.ttf', fontSize=self.screen_h // 30)
 
     def __set_level(self):
         self.recipe = Play.data.recipes[self.recipe_id]

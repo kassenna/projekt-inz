@@ -17,7 +17,7 @@ class Product(Element):
         for i in range(self.product.number):
             self.images.append(Product_image(copy.deepcopy(c.get_coordinate()), w, h,
                                              product=product, name=product.name))
-            c.move(Point((-0.004, -0.008)))
+            c.move(Point((0.006, 0.006)))
 
         # self.images.reverse()
 

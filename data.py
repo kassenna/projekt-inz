@@ -1,4 +1,3 @@
-from beta.product_insert import ProductInsert
 from product_data import Product_data
 from recipe_data import Recipe_data
 from tinydb import TinyDB

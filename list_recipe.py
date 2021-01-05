@@ -22,14 +22,15 @@ class List_recipe(Object_display):
 
     def resize(self, w: int, h: int) -> None:
         self.point = self.coordinate.point.copy() * Point((w, h))
-        self.widget = pygameAssets.TextBox(self.point.x, self.point.y, self.name, fontSize=self.font_size)
+        self.widget = pygameAssets.TextBox(self.point.x, self.point.y, self.name, fontSize=self.font_size,
+                                           fontFamily='data/freesansbold.ttf')
 
 
 class Product_list(List_recipe):
 
     def __init__(self, rec: Rectangle, product: Product_data, i: int, w: int, h: int):
-        name = str(product.number_recipe) + ' ' + product.name + ' ' + str(product.price)
-        super().__init__(rec, w, h, name, i, fontsize=32)
+        name = str(product.number_recipe) + 'x ' + product.name + ' ' + str(product.price)
+        super().__init__(rec, w, h, name, i, fontsize=int(rec.size.y * 35))
         self.product = product
 
     def draw(self):
@@ -42,5 +43,3 @@ class Product_list(List_recipe):
             else:
                 self.widget.setColor((0, 0, 0))
         super().draw()
-
-

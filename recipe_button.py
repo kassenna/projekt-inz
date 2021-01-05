@@ -7,15 +7,15 @@ from pygameAssets import Button
 
 
 class Recipe_button(Object_display):
-    def __init__(self, receipe:Recipe_data, w:int, h:int):
+    def __init__(self, recipe: Recipe_data, w: int, h: int):
         Button.screen = Object_display.screen
         super().__init__(w, h)
-        self.receipe = receipe
-        self.ID = int(receipe.id)
+        self.receipe = recipe
+        self.ID = recipe.id
         self.color = (100, 0, 0)
-        if receipe.difficulty == 0:
+        if recipe.difficulty == 0:
             self.color = (0, 80, 0)
-        elif receipe.difficulty == 1:
+        elif recipe.difficulty == 1:
             self.color = (80, 90, 0)
         self.resize(w, h)
 
@@ -27,7 +27,7 @@ class Recipe_button(Object_display):
         pygame.draw.rect(Object_display.screen, clr, self.frame.to_rectangle(), 0)
         self.button.draw()
 
-    def click(self, pos:tuple) -> bool:
+    def click(self, pos: tuple) -> bool:
         return self.frame.is_in_area(Point(pos))
 
     def run(self):
@@ -43,6 +43,5 @@ class Recipe_button(Object_display):
         self.square.move(Point((self.square.size.x // 2, self.square.size.y // 2)))
 
         self.button = Button(self.square.point.x, self.square.point.y, self.square.size.x, self.square.size.y,
-                             text=self.receipe.name, color=self.color)
-
-
+                             text=self.receipe.name, color=self.color, fontSize=int(self.square.size.x // 5),
+                             fontFamily='data/freesansbold.ttf')

@@ -15,7 +15,7 @@ class Shelf(Object_display):
         self.nmbr_product = 0
         self.product_start = self.rectangle.copy()
         self.product_start.setsize(self.product_start.size.x / 5, self.product_start.size.x / 5 * screen_w / screen_h)
-        self.product_start.move(Point((self.product_start.size.x * 0.8, -self.product_start.size.y * 0.5)))
+        self.product_start.move(Point((self.product_start.size.x * 0.8, -self.product_start.size.y * 0.56)))
 
     def draw(self):
         self.image.draw()

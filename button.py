@@ -24,7 +24,8 @@ class Button(Object_display):
         self.rec = self.coordinate.copy() * Point((w, h))
         self.widget = pygameAssets.Button(self.rec.point.x, self.rec.point.y, self.rec.size.x // 2, 40,
                                           color=(0, 200, 0), text='zapłać', textColor=(0, 0, 0),
-                                          activeColor=(0, 0, 100), fontSize=40)
+                                          activeColor=(0, 0, 100), fontSize=int(self.rec.size.x // 10),
+                                          fontFamily='data/freesansbold.ttf')
 
     @abc.abstractmethod
     def click(self, event: pygame.event):

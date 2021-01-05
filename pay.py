@@ -13,11 +13,13 @@ from pygameAssets import TextBox
 class Pay(Play):
     path = None
     db = None
+
     def __init__(self, screen_w, screen_h, count, recipe):
         self.screen_w = screen_w
         self.screen_h = screen_h
         self.recipe = recipe
-        self.label = TextBox(screen_w // 2, 50, "Do zapłaty: " + str(count), color=(150, 200, 200))
+        self.label = TextBox(screen_w // 2, 50, "Do zapłaty: " + str(count), color=(150, 200, 200),
+                             fontFamily='data/freesansbold.ttf')
         self.counter = Counter(screen_w, screen_h, (0.3, 0.1, 0.7, 0.5))
         self.pocket = Pocket(screen_w, screen_h, (0.4, 0.6, 0.7, 0.8))
         self.pocket.count(copy.deepcopy(count))
@@ -36,7 +38,7 @@ class Pay(Play):
         if Pay.db is None:
             Pay.db = TinyDB(path)
 
-        recipe = Pay.db.table('Receipe')
+        recipe = Pay.db.table('Recipes')
         self.recipe.completed = True
         r = Query()
         recipe.update(set("completed", True), r.name == self.recipe.name)
@@ -69,18 +71,20 @@ class Pay(Play):
                     if coin is not None:
                         self.counter.test_product(coin, lay=True)
                         coin = None
-                if coin is not None:
-                    coin.current_image.move(pygame.mouse.get_pos())
-                    coin.draw()
+
                 if self.button.click(event=event):
                     if win is False:
                         self.complete_level()
                         self.label = TextBox(self.screen_w // 2, 50, 'Gratuluję! Poziom ukończony',
-                                             color=(150, 200, 200))
+                                             color=(150, 200, 200), fontFamily='data/freesansbold.ttf',
+                                             fontSize=self.screen_h // 30)
                         self.button.setText('Powrót')
                         win = True
                     else:
                         return
+            if coin is not None:
+                coin.current_image.move(pygame.mouse.get_pos())
+                coin.draw()
             self.button.draw(self.counter.price)
             pygame.display.update()
             Play.clock.tick(Play.FPS)
