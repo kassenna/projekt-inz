@@ -19,8 +19,6 @@ class Product(Element):
                                              product=product, name=product.name))
             c.move(Point((0.006, 0.006)))
 
-        # self.images.reverse()
-
     def check(self):
         l = 0
         for i in self.images:
@@ -32,6 +30,5 @@ class Product(Element):
         self.product.is_clicked = False
         if self.current_image.on_counter is False:
             self.current_image.lay()
-
         self.current_image = None
         self.check()

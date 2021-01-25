@@ -13,6 +13,7 @@ class Product_image(Moveable_object):
         super().__init__(coordinate, w, h)
         self.product = product
         self.price = product.price
+        self.cursor = Point((0, 0))
 
     def click(self, pos: tuple):
         if self.position.is_in_area(Point(pos)):

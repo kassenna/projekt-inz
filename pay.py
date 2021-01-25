@@ -21,7 +21,7 @@ class Pay(Play):
         self.label = TextBox(screen_w // 2, 50, "Do zapłaty: " + str(count), color=(150, 200, 200),
                              fontFamily='data/freesansbold.ttf')
         self.counter = Counter(screen_w, screen_h, (0.3, 0.1, 0.7, 0.5))
-        self.pocket = Pocket(screen_w, screen_h, (0.4, 0.6, 0.7, 0.8))
+        self.pocket = Pocket(screen_w, screen_h, (0.2, 0.55, 0.7, 0.8))
         self.pocket.count(copy.deepcopy(count))
         self.pocket.create()
         from button import Button_pay

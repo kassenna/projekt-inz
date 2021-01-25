@@ -15,6 +15,8 @@ class List_recipe(Object_display):
         else:
             self.name = name
         self.font_size = fontsize
+        self.point = None
+        self.widget = None
         self.resize(w, h)
 
     def draw(self) -> None:

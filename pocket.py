@@ -1,4 +1,3 @@
-
 import pygame
 from price import Price
 from coin import Coin
@@ -9,6 +8,7 @@ from points import Rectangle, Point
 class Pocket(Object_display):
     def __init__(self, w, h, coordinate):
         super().__init__(w, h)
+        self.price = None
         self.coordinate = Rectangle(coordinate)
         self.position = self.coordinate * Point((w, h))
         self.nominal = [50, 20, 10, 5, 2, 1]
@@ -16,7 +16,7 @@ class Pocket(Object_display):
         self.gr_count = []
         self.coins = []
 
-    def count(self, sum):
+    def count(self, sum: Price):
         self.price = sum.copy()
         for i in self.nominal:
             zl_temp = sum.zl // i
@@ -49,9 +49,10 @@ class Pocket(Object_display):
         if event is not None:
             pass
         if pos is not None:
+            self.coins.reverse()
             for i in self.coins:
                 coin = i.click(pos)
                 if coin is not None:
+                    self.coins.reverse()
                     return coin
-
-
+            self.coins.reverse()

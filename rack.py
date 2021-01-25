@@ -4,9 +4,7 @@ from product import Product
 from shelf import Shelf
 from recipe_widget import Recipe_widget
 
-'''
-Class Rack
-'''
+
 class Rack(Object_display):
     def __init__(self, w: int, h: int, id: int):
         super().__init__(w, h)

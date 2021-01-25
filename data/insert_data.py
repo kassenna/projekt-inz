@@ -29,19 +29,19 @@ t_product.insert({'name': 'rogal', 'price': 1.85, 'shelf': 0, 'number': 3})  # 2
 t_product.insert({'name': 'sok', 'price': 2.5, 'shelf': 5, 'number': 3})  # 22
 
 t_receipe = db.table("Recipes")
-t_receipe.insert({"name": 'jajecznica', 'difficulty': 0, 'ingredient': [('chleb', 1), ('jajko', 2)],
+t_receipe.insert({"name": 'jajecznica', 'difficulty': 0, 'ingredient': [('chleb', 1), ('jajko', 2), ('masło', 1)],
                   'optional ingredient': [('pomidor', 1), ('szczypiorek', 1)], 'completed': False})
-t_receipe.insert({"name": 'kanapka I', 'difficulty': 0, 'ingredient': [('bułka', 2), ('jajko', 3)],
-                  'optional ingredient': [('ogórek', 1), ('szczypiorek', 2)], 'completed': False})
-t_receipe.insert({"name": 'pasta jajeczna', 'difficulty': 1, 'ingredient': [('jajko', 4), ('jogurt', 1)],
-                  'optional ingredient': [('pomidor', 2), ('szczypiorek', 4)], 'completed': False})
-t_receipe.insert({"name": 'kanapka III', 'difficulty': 2, 'ingredient': [('chleb', 1), ('szynka', 2)],
-                  'optional ingredient': [('pomidor', 1), ('jajko', 1), ('szczypiorek', 1), ('ogórek', 1), ],
+t_receipe.insert({"name": 'kanapka', 'difficulty': 0, 'ingredient': [('bułka', 2), ('jajko', 3)],
+                  'optional ingredient': [('ogórek', 1), ('szczypiorek', 1)], 'completed': False})
+t_receipe.insert({"name": 'pasta jajeczna', 'difficulty': 1, 'ingredient': [('jajko', 4), ('olej', 1)],
+                  'optional ingredient': [('ser', 1), ('szczypiorek', 1)], 'completed': False})
+t_receipe.insert({"name": 'kanapka', 'difficulty': 2, 'ingredient': [('chleb', 1), ('szynka', 1)],
+                  'optional ingredient': [('pomidor', 1), ('jajko', 1), ('szczypiorek', 1), ('ogórek', 3), ],
                   'completed': False})
-t_receipe.insert({"name": 'śniadanie', 'difficulty': 3, 'ingredient': [('chleb', 1), ('sok', 1), ],
-                  'optional ingredient': [('jogurt', 1), ('masło', 1), ('szynka', 2), ('ser', 2), ('płatki', 1)],
+t_receipe.insert({"name": 'śniadanie', 'difficulty': 3, 'ingredient': [('chleb', 1), ('sok', 1), ('masło', 1)],
+                  'optional ingredient': [('szynka', 2), ('ser', 2), ('pomidor', 1), ('ogórek', 2), ('sałata', 2)],
                   'completed': False})
-t_receipe.insert({"name": 'jogurt', 'difficulty': 1, 'ingredient': [('jogurt', 2), ('banan', 2), ],
+t_receipe.insert({"name": 'koktajl', 'difficulty': 1, 'ingredient': [('jogurt', 2), ('banan', 2), ],
                   'optional ingredient': [('truskawka', 4), ('kakao', 1), ('jabłko', 2), ('płatki', 1)],
                   'completed': False})
 

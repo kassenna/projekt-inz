@@ -30,7 +30,6 @@ class Recipe_widget(Object_display):
     def resize(self, w: int, h: int):
         self.position = self.coordinate.copy()
         self.position = self.position * Point((w, h))
-
         for i in self.recipe_widget:
             i.resize(w, h)
 

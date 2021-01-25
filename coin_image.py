@@ -1,5 +1,4 @@
 import pygame
-
 from moveable_object import Moveable_object
 
 
@@ -11,5 +10,3 @@ class Coin_image(Moveable_object):
             self.image = pygame.image.load('images/test.png')
         super().__init__(coordinate, w, h)
         self.price = values
-
-

@@ -7,7 +7,7 @@ import pygame as pg
 
 class Level(Play):
 
-    def __init__(self, id:int):
+    def __init__(self, id: int):
         self.screen_w, self.screen_h = Play.screen.get_size()
         self.recipe_id = id
         self.__set_level()
@@ -56,8 +56,8 @@ class Level(Play):
                 if self.rack.click(event=event) is False:
                     return
             if product is not None and product is not False:
-               product.current_image.move(pg.mouse.get_pos())
-               product.current_image.draw()
+                product.current_image.move(pg.mouse.get_pos())
+                product.current_image.draw()
 
             self.label.draw()
             pg.display.update()

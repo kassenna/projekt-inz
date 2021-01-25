@@ -49,6 +49,7 @@ class Point:
     def copy(self):
         return copy.copy(self)
 
+
 class Rectangle:
     def __init__(self, coordinate: tuple):
         self.point = Point((coordinate[0], coordinate[1]))

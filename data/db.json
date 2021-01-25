@@ -157,6 +157,10 @@
         [
           "jajko",
           2
+        ],
+        [
+          "mas\u0142o",
+          1
         ]
       ],
       "optional ingredient": [
@@ -172,7 +176,7 @@
       "completed": false
     },
     "2": {
-      "name": "kanapka I",
+      "name": "kanapka",
       "difficulty": 0,
       "ingredient": [
         [
@@ -191,7 +195,7 @@
         ],
         [
           "szczypiorek",
-          2
+          1
         ]
       ],
       "completed": false
@@ -205,24 +209,24 @@
           4
         ],
         [
-          "jogurt",
+          "olej",
           1
         ]
       ],
       "optional ingredient": [
         [
-          "pomidor",
-          2
+          "ser",
+          1
         ],
         [
           "szczypiorek",
-          4
+          1
         ]
       ],
       "completed": false
     },
     "4": {
-      "name": "kanapka III",
+      "name": "kanapka",
       "difficulty": 2,
       "ingredient": [
         [
@@ -231,7 +235,7 @@
         ],
         [
           "szynka",
-          2
+          1
         ]
       ],
       "optional ingredient": [
@@ -249,7 +253,7 @@
         ],
         [
           "og\u00f3rek",
-          1
+          3
         ]
       ],
       "completed": false
@@ -265,17 +269,13 @@
         [
           "sok",
           1
-        ]
-      ],
-      "optional ingredient": [
-        [
-          "jogurt",
-          1
         ],
         [
           "mas\u0142o",
           1
-        ],
+        ]
+      ],
+      "optional ingredient": [
         [
           "szynka",
           2
@@ -285,14 +285,22 @@
           2
         ],
         [
-          "p\u0142atki",
+          "pomidor",
           1
+        ],
+        [
+          "og\u00f3rek",
+          2
+        ],
+        [
+          "sa\u0142ata",
+          2
         ]
       ],
       "completed": false
     },
     "6": {
-      "name": "jogurt",
+      "name": "koktajl",
       "difficulty": 1,
       "ingredient": [
         [

@@ -9,9 +9,7 @@ class Moveable_object(Object_display):
         self.on_counter = False
         self.start_coordinate = Rectangle(coordinate)
         self.position = self.start_coordinate.copy() * Point((self.screen_w, self.screen_h))
-        #self.position.move(Point((random.randint(50, 70), random.randint(0, 10))))
         self.im = pygame.transform.scale(self.image, self.position.size.to_int())
-
         self.dp = Point((0, 0))
         self.is_clicked = False
 

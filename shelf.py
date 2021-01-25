@@ -8,6 +8,7 @@ from product import Product
 class Shelf(Object_display):
     def __init__(self, id: int, coordinate: tuple, screen_w: int, screen_h: int):
         super().__init__(screen_w, screen_h)
+        self.is_clicked = False
         self.id = id
         self.rectangle = Rectangle(coordinate)
         self.image = Shelf_image(coordinate, screen_w, screen_h)
@@ -36,7 +37,7 @@ class Shelf(Object_display):
         for i in self.product:
             i.resize(w, h)
 
-    def click(self, pos:tuple):
+    def click(self, pos: tuple):
         for i in self.product:
             product = i.click(pos)
             if product is not None:

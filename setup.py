@@ -16,6 +16,6 @@ setup(
     },
     data_files=[
         ('share/applications/', ['vxlabs-myscript.desktop'])
-    ], install_requires=['pygameAssets', 'pygame', 'tinydb']
+    ], install_requires=['pygameAssets', 'pygame', 'tinydb', 'screeninfo', 'numpy']
 
 )

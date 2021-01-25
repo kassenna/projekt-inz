@@ -1,13 +1,22 @@
-# os -> independent    os patch
 from price import Price
 
 
 class Product_data:
     def __init__(self, d: dict):
         self.name = d['name']
-        self.price = Price(d['price'])
-        self.shelf = d['shelf']
-        self.number = d['number']
+        if type(d['price']) is float or type(d['price']) is int:
+            self.price = Price(d['price'])
+        else:
+            raise
+        if type(d['shelf']) is int:
+            self.shelf = d['shelf']
+        else:
+            raise
+
+        if type(d['number']) is int:
+            self.number = d['number']
+        else:
+            raise
         self.number_lay = 0
         self.number_recipe = 0
         self.is_clicked = False

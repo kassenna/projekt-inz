@@ -38,11 +38,14 @@ class Recipe_data:
         for i in self.ingredient_number:
             self.add_product_to_recipe(i, products)
         if self.optional_ingredient_number is not None:
-            x = sample(self.optional_ingredient_number, self.difficulty+1)
+            try:
+                x = sample(self.optional_ingredient_number, self.difficulty + 1)
+            except:
+                x = self.optional_ingredient_number
             for i in x:
                 self.add_product_to_recipe(i, products)
 
-    def display(self) -> str:
+    def display(self) -> None:
         print(f"{self.name, self.difficulty}")
         for i in self.ingredient:
             print(f"{i.display()}")

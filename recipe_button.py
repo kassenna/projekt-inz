@@ -17,6 +17,9 @@ class Recipe_button(Object_display):
             self.color = (0, 80, 0)
         elif recipe.difficulty == 1:
             self.color = (80, 90, 0)
+        self.frame = None
+        self.square = None
+        self.button = None
         self.resize(w, h)
 
     def draw(self) -> None:
@@ -34,14 +37,13 @@ class Recipe_button(Object_display):
         Object_display.data.insert_product_to_receipe(self.receipe.id)
         Level(self.receipe.id).run()
 
-    def resize(self, w, h):
+    def resize(self, w: int, h: int):
         self.frame = Rectangle((0, 0, w // 10, w // 10))
         self.frame.move(Point((self.frame.size.x * (self.ID % 10), self.frame.size.y * (self.ID // 10))))
         self.frame.scale(Point((self.frame.size.x // 10, self.frame.size.y // 10)))
         self.square = self.frame.copy()
         self.square.scale(Point((self.square.size.x // 20, self.square.size.y // 20)))
         self.square.move(Point((self.square.size.x // 2, self.square.size.y // 2)))
-
         self.button = Button(self.square.point.x, self.square.point.y, self.square.size.x, self.square.size.y,
                              text=self.receipe.name, color=self.color, fontSize=int(self.square.size.x // 5),
                              fontFamily='data/freesansbold.ttf')
